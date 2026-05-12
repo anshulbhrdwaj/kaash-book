@@ -17,8 +17,6 @@ export function BuySection({
   stockEnabled,
   launchOfferActive,
 }: BuySectionProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [qty, setQty] = useState(1);
   const [format, setFormat] = useState("Paperback");
   const { addItem, openCart } = useCartStore();
@@ -42,7 +40,6 @@ export function BuySection({
   return (
     <section
       id="buy"
-      ref={ref}
       className="section-padding"
       style={{ background: "var(--surface)" }}
     >
@@ -50,15 +47,14 @@ export function BuySection({
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "clamp(2rem, 5vw, 4rem)",
             alignItems: "center",
           }}
         >
           {/* Book cover - large */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             style={{
               display: "flex",
@@ -194,8 +190,7 @@ export function BuySection({
 
           {/* Product info */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p

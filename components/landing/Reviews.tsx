@@ -53,7 +53,7 @@ function InitialsAvatar({ name }: { name: string }) {
 
 export function Reviews({ reviews }: { reviews: Review[] }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -66,7 +66,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "1.5rem",
             marginBottom: "4rem",
           }}
@@ -77,16 +77,16 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
             { label: "Published by", value: "Astitva Prakashan" },
           ].map((stat, i) => (
             <motion.div
-              key={stat.value}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.15 }}
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 * i }}
               style={{
-                textAlign: "center",
-                padding: "2rem",
-                borderRadius: "var(--radius-lg)",
+                background: "var(--ink)",
                 border: "1px solid var(--border)",
-                background: "var(--surface)",
+                borderRadius: "var(--radius-md)",
+                padding: "2rem",
+                position: "relative",
               }}
             >
               <p
@@ -150,7 +150,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "1.5rem",
           }}
         >

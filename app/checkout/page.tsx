@@ -172,7 +172,7 @@ export default function CheckoutPage() {
           <motion.form onSubmit={handleSubmit(onSubmit)} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             <p style={{ fontFamily: "var(--font-mono)", fontSize: "var(--text-xs)", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--saffron)", marginBottom: "1.5rem" }}>Shipping Details</p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))", gap: "1rem", marginBottom: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem", marginBottom: "1rem" }}>
               <div>
                 <label className="form-label">Full Name</label>
                 <input {...register("fullName")} className="form-input" placeholder="Your full name" />
@@ -202,7 +202,7 @@ export default function CheckoutPage() {
               <input {...register("addressLine2")} className="form-input" placeholder="Landmark, Area" />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))", gap: "1rem", marginBottom: "1rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "1rem", marginBottom: "1rem" }}>
               <div>
                 <label className="form-label">City</label>
                 <input {...register("city")} className="form-input" placeholder="City" />

@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 export function TheFeeling() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section
@@ -46,7 +46,7 @@ export function TheFeeling() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "clamp(2rem, 5vw, 4rem)",
             alignItems: "center",
           }}

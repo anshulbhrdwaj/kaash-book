@@ -15,7 +15,7 @@ He smiled. She knew because she could feel it — that particular shift in the a
 
 export function ChapterGlimpse() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [revealedWords, setRevealedWords] = useState(0);
   const words = chapterText.split(/(\s+)/);
 
