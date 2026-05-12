@@ -1,6 +1,10 @@
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from "../generated/prisma/client";
 
-const prisma = new PrismaClient();
+import { PrismaPg } from "@prisma/adapter-pg";
+
+const connectionString = process.env.DATABASE_URL || "postgresql://x:x@localhost:5432/x";
+const adapter = new PrismaPg({ connectionString });
+const prisma = new PrismaClient({ adapter }) as PrismaClient;
 
 async function main() {
   // Seed SiteSettings
