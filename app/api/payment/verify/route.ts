@@ -10,9 +10,17 @@ export async function POST(req: Request) {
     // Server-side signature verification
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!)
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET || "")
       .update(body)
       .digest("hex");
+
+    console.log("Verify Payment Debug:", {
+      razorpay_order_id,
+      razorpay_payment_id,
+      received_sig: razorpay_signature,
+      expected_sig: expectedSignature,
+      has_secret: !!process.env.RAZORPAY_KEY_SECRET
+    });
 
     if (expectedSignature !== razorpay_signature) {
       return NextResponse.json({ error: "Invalid payment signature" }, { status: 400 });
