@@ -46,7 +46,7 @@ export function TheFeeling() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "clamp(2rem, 5vw, 4rem)",
             alignItems: "center",
           }}

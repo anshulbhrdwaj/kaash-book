@@ -10,7 +10,7 @@ export function AboutAuthor() {
   return (
     <section ref={ref} className="section-padding" style={{ background: "var(--surface)" }}>
       <div className="container" style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "3rem", alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "3rem", alignItems: "center" }}>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.8 }} style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ width: "280px", height: "340px", borderRadius: "var(--radius-xl)", overflow: "hidden", background: "radial-gradient(ellipse at 50% 30%, var(--saffron) 0%, transparent 60%), radial-gradient(ellipse at 30% 70%, var(--dusk) 0%, transparent 50%), var(--ink)", position: "relative" }}>
               <div style={{ position: "absolute", bottom: "2rem", left: "2rem" }}>

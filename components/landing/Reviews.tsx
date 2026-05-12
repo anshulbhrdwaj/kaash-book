@@ -66,7 +66,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
             gap: "1.5rem",
             marginBottom: "4rem",
           }}
@@ -150,7 +150,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
             gap: "1.5rem",
           }}
         >
