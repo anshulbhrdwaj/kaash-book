@@ -1,0 +1,71 @@
+// Prisma schema for Kaash Book Commerce
+// PostgreSQL via Supabase
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  status       OrderStatus @default(PENDING)
+  customerName String
+  email        String
+  phone        String
+  address      Json        // { line1, line2, city, state, pin, notes }
+  items        Json        // [{ title, format, qty, price }]
+  total        Int         // in paise
+  razorpayId   String?
+  paymentId    String?
+  trackingId   String?
+  notes        String?
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  name      String
+  city      String
+  rating    Int      // 1-5
+  text      String
+  approved  Boolean  @default(false)
+  featured  Boolean  @default(false)
+
+  @@index([approved, featured])
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  source    String   @default("landing_page")
+}
+
+model SiteSettings {
+  id                String  @id @default("singleton")
+  bookPrice         Int     @default(39900)
+  mrp               Int     @default(45000)
+  stockEnabled      Boolean @default(true)
+  announcementBar   String?
+  launchOfferActive Boolean @default(true)
+}
