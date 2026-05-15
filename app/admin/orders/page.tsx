@@ -68,13 +68,13 @@ export default function AdminOrdersPage() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
+      <div className="admin-page-header">
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)" }}>Orders ({total})</h1>
         <button onClick={exportCSV} className="btn btn-ghost btn-sm">Export CSV</button>
       </div>
 
       {/* Filters */}
-      <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
+      <div className="admin-filters">
         <select value={status} onChange={(e) => { setStatus(e.target.value); setPage(1); }} className="form-input" style={{ maxWidth: "200px" }}>
           {statuses.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
@@ -133,7 +133,7 @@ export default function AdminOrdersPage() {
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-xl)", fontStyle: "italic", color: "var(--parchment)" }}>Order Details</h2>
               <button onClick={() => setSelectedOrder(null)} style={{ background: "none", border: "none", color: "var(--muted)", fontSize: "1.2rem" }}>✕</button>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+            <div className="admin-form-grid-2" style={{ marginBottom: "1rem" }}>
               <div><p className="form-label">Order ID</p><p style={{ fontFamily: "var(--font-mono)", fontSize: "var(--text-xs)", wordBreak: "break-all" }}>{selectedOrder.id}</p></div>
               <div><p className="form-label">Razorpay ID</p><p style={{ fontFamily: "var(--font-mono)", fontSize: "var(--text-xs)" }}>{selectedOrder.razorpayId || "—"}</p></div>
               <div><p className="form-label">Name</p><p>{selectedOrder.customerName}</p></div>

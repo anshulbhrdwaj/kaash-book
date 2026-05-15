@@ -44,7 +44,7 @@ export default function AdminSubscribersPage() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
+      <div className="admin-page-header">
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)" }}>Subscribers ({subscribers.length})</h1>
         <div style={{ display: "flex", gap: "0.5rem" }}>
           {selected.size > 0 && <button onClick={bulkDelete} className="btn btn-ghost btn-sm" style={{ color: "#EF4444" }}>Delete ({selected.size})</button>}

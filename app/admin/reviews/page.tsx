@@ -55,14 +55,14 @@ export default function AdminReviewsPage() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+      <div className="admin-page-header">
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)" }}>Reviews ({reviews.length})</h1>
         <button onClick={() => setShowAdd(!showAdd)} className="btn btn-primary btn-sm">{showAdd ? "Cancel" : "Add Review"}</button>
       </div>
 
       {showAdd && (
         <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)", padding: "1.5rem", marginBottom: "2rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+          <div className="admin-form-grid-3" style={{ marginBottom: "1rem" }}>
             <div><label className="form-label">Name</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="form-input" /></div>
             <div><label className="form-label">City</label><input value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} className="form-input" /></div>
             <div><label className="form-label">Rating (1-5)</label><input type="number" min={1} max={5} value={form.rating} onChange={(e) => setForm({ ...form, rating: parseInt(e.target.value) })} className="form-input" /></div>

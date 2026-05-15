@@ -20,24 +20,36 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   if (pathname === "/admin/login") return <>{children}</>;
   if (status === "loading") {
     return (
-      <div style={{ background: "var(--ink)", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <p style={{ fontFamily: "var(--font-mono)", color: "var(--muted)" }}>Loading...</p>
+      <div
+        style={{
+          background: "var(--ink)",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p style={{ fontFamily: "var(--font-mono)", color: "var(--muted)" }}>
+          Loading...
+        </p>
       </div>
     );
   }
   if (!session) return null;
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "var(--ink)" }}>
+    <div className="admin-layout">
       <AdminSidebar />
-      <div style={{ flex: 1, padding: "2rem", overflowY: "auto" }}>
-        {children}
-      </div>
+      <main className="admin-main">{children}</main>
     </div>
   );
 }
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <SessionProvider>
       <AdminLayoutInner>{children}</AdminLayoutInner>

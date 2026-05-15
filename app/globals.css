@@ -526,12 +526,82 @@ body {
    ADMIN STYLES
    ═══════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════
+   ADMIN LAYOUT
+   ═══════════════════════════════════════════════ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--ink);
+}
+
+.admin-main {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  min-width: 0; /* prevents flex child overflow */
+}
+
+/* Hamburger button — hidden on desktop */
+.admin-hamburger {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  color: var(--parchment);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.admin-hamburger:hover {
+  border-color: var(--saffron);
+  color: var(--saffron);
+}
+
+/* Sidebar overlay — mobile only */
+.admin-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1099;
+  backdrop-filter: blur(4px);
+}
+
+/* Close button inside sidebar — mobile only */
+.admin-sidebar-close {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+.admin-sidebar-close:hover {
+  color: var(--parchment);
+}
+
 .admin-sidebar {
   width: 260px;
   min-height: 100vh;
   background: var(--surface);
   border-right: 1px solid var(--border);
   padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
 .admin-nav-item {
@@ -553,6 +623,10 @@ body {
   background: rgba(232, 135, 58, 0.08);
   border-left-color: var(--saffron);
 }
+
+/* ═══════════════════════════════════════════════
+   ADMIN CARDS & TABLES
+   ═══════════════════════════════════════════════ */
 
 .stat-card {
   background: var(--surface);
@@ -581,6 +655,7 @@ body {
   letter-spacing: 0.1em;
   color: var(--muted);
   border-bottom: 1px solid var(--border);
+  white-space: nowrap;
 }
 
 .admin-table td {
@@ -591,6 +666,58 @@ body {
 
 .admin-table tr:hover td {
   background: var(--surface-hover);
+}
+
+/* Responsive admin stat grid */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Responsive form grid helpers */
+.admin-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.admin-form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Admin page header */
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Admin filters row */
+.admin-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-filters .form-input {
+  max-width: 250px;
+}
+
+/* Admin card container for settings etc */
+.admin-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  max-width: 600px;
 }
 
 /* Status badges */
@@ -1109,9 +1236,85 @@ body {
     text-align: center;
   }
 
+  /* ─── Admin Mobile ─── */
+
+  .admin-hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-sidebar-overlay {
+    display: block;
+  }
+
+  .admin-sidebar-close {
+    display: block;
+  }
+
   .admin-sidebar {
-    width: 200px;
-    min-height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    min-height: 100vh;
+    z-index: 1100;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: none;
+  }
+
+  .admin-sidebar--open {
+    transform: translateX(0);
+    box-shadow: 20px 0 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .admin-main {
+    padding: 4rem 1rem 2rem;
+    width: 100%;
+  }
+
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  /* Admin grids stack on mobile */
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .admin-form-grid-2,
+  .admin-form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-card {
+    max-width: 100%;
+    padding: 1.25rem;
+  }
+
+  /* Admin table font reduction */
+  .admin-table {
+    font-size: var(--text-xs);
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem 0.5rem;
+  }
+
+  /* Filters stack */
+  .admin-filters .form-input {
+    max-width: 100%;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -1170,6 +1373,19 @@ body {
     width: 100%;
     justify-content: center;
     text-align: center;
+  }
+
+  /* Admin small phone */
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .admin-main {
+    padding: 4rem 0.75rem 1.5rem;
   }
 }
 

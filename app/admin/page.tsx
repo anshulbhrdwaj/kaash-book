@@ -33,7 +33,7 @@ export default function AdminDashboard() {
     return (
       <div>
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)", marginBottom: "2rem" }}>Dashboard</h1>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
+        <div className="admin-stats-grid">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="skeleton" style={{ height: "120px" }} />
           ))}
@@ -49,7 +49,7 @@ export default function AdminDashboard() {
       <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)", marginBottom: "2rem" }}>Dashboard</h1>
 
       {/* Stat cards */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem", marginBottom: "3rem" }}>
+      <div className="admin-stats-grid">
         {[
           { label: "Total Orders", value: data.totalOrders, color: "var(--saffron)" },
           { label: "Revenue", value: `₹${(data.revenue / 100).toLocaleString()}`, color: "var(--gold)" },

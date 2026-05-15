@@ -31,7 +31,7 @@ export default function AdminSettingsPage() {
     <div>
       <h1 style={{ fontFamily: "var(--font-display)", fontSize: "var(--text-2xl)", fontStyle: "italic", color: "var(--parchment)", marginBottom: "2rem" }}>Site Settings</h1>
 
-      <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)", padding: "2rem", maxWidth: "600px" }}>
+      <div className="admin-card">
         <div style={{ marginBottom: "1.5rem" }}>
           <label className="form-label">Book Price (in paise, e.g. 39900 = ₹399)</label>
           <input type="number" value={settings.bookPrice} onChange={(e) => setSettings({ ...settings, bookPrice: parseInt(e.target.value) })} className="form-input" />

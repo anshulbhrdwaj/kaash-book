@@ -176,16 +176,7 @@ export default function AdminBlogPage() {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: "2rem",
-          flexWrap: "wrap",
-          gap: "1rem",
-        }}
-      >
+      <div className="admin-page-header">
         <div>
           <h1
             style={{
@@ -223,12 +214,11 @@ export default function AdminBlogPage() {
         </div>
       ) : posts.length === 0 ? (
         <div
+          className="admin-card"
           style={{
             textAlign: "center",
             padding: "4rem 2rem",
-            background: "var(--surface)",
-            borderRadius: "var(--radius-lg)",
-            border: "1px solid var(--border)",
+            margin: "0 auto",
           }}
         >
           <p
@@ -522,13 +512,7 @@ export default function AdminBlogPage() {
                   />
                 </div>
 
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "1rem",
-                  }}
-                >
+                <div className="admin-form-grid-2">
                   <div>
                     <label className="form-label">Author</label>
                     <input
