@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 export function AboutAuthor() {
@@ -17,8 +18,10 @@ export function AboutAuthor() {
             transition={{ duration: 0.8 }}
             className="author-portrait-column"
           >
-            <div className="author-portrait">
-              <div style={{ position: "absolute", bottom: "2rem", left: "2rem" }}>
+            <div className="author-portrait relative">
+              <Image src="/author.jpeg" alt="Aashray" width={500} height={500} />
+              <div className="bg-transparent bg-gradient-to-t from-black via-black/20 to-transparent w-full h-full z-50 absolute top-0 left-0"></div>
+              <div style={{ position: "absolute", bottom: "2rem", left: "2rem", zIndex: 100 }}>
                 <p
                   style={{
                     fontFamily: "var(--font-display)",
