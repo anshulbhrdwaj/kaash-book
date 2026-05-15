@@ -72,7 +72,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
           }}
         >
           {[
-            { label: "A story about", value: "Growth" },
+            { label: "A story about", value: "Growth & Love" },
             { label: "Set in the heart of", value: "Rajasthan" },
             { label: "Published by", value: "Astitva Prakashan" },
           ].map((stat, i) => (
