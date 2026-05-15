@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 export function Characters() {
@@ -59,55 +60,13 @@ export function Characters() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             {/* Abstract portrait - CSS gradient */}
-            <div
-              style={{
-                width: "100%",
-                height: "200px",
-                borderRadius: "var(--radius-md)",
-                marginBottom: "1.5rem",
-                position: "relative",
-                overflow: "hidden",
-                background: `
-                  radial-gradient(circle at 50% 30%, var(--dusk) 0%, transparent 60%),
-                  radial-gradient(circle at 40% 70%, var(--teal) 0%, transparent 50%),
-                  linear-gradient(180deg, var(--surface-hover), var(--ink))
-                `,
-              }}
-            >
-              {/* Abstract geometric silhouette */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "10%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  opacity: 0.3,
-                }}
-              >
-                <svg width="80" height="120" viewBox="0 0 80 120">
-                  <circle cx="40" cy="25" r="18" fill="var(--parchment)" opacity="0.4" />
-                  <ellipse cx="40" cy="80" rx="25" ry="40" fill="var(--parchment)" opacity="0.2" />
-                  {/* Hair flowing */}
-                  <path d="M22 25 Q10 40 15 60" stroke="var(--parchment)" strokeWidth="2" fill="none" opacity="0.3" />
-                  <path d="M58 25 Q70 40 65 60" stroke="var(--parchment)" strokeWidth="2" fill="none" opacity="0.3" />
-                </svg>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "1rem",
-                  right: "1rem",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "3rem",
-                  fontStyle: "italic",
-                  color: "var(--parchment)",
-                  opacity: 0.08,
-                  lineHeight: 1,
-                }}
-              >
-                P
-              </div>
-            </div>
+            <Image
+              src="/prisha.png"
+              alt="Prisha"
+              height={360}
+              width={360}
+              className="rounded-lg h-102 object-cover"
+            />
 
             <h3
               style={{
@@ -194,54 +153,13 @@ export function Characters() {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             {/* Abstract portrait */}
-            <div
-              style={{
-                width: "100%",
-                height: "200px",
-                borderRadius: "var(--radius-md)",
-                marginBottom: "1.5rem",
-                position: "relative",
-                overflow: "hidden",
-                background: `
-                  radial-gradient(circle at 50% 30%, var(--ember) 0%, transparent 60%),
-                  radial-gradient(circle at 60% 70%, var(--saffron) 0%, transparent 50%),
-                  linear-gradient(180deg, var(--surface-hover), var(--ink))
-                `,
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "10%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  opacity: 0.3,
-                }}
-              >
-                <svg width="80" height="120" viewBox="0 0 80 120">
-                  <circle cx="40" cy="25" r="16" fill="var(--parchment)" opacity="0.4" />
-                  <rect x="20" y="42" width="40" height="55" rx="4" fill="var(--parchment)" opacity="0.2" />
-                  {/* Shoulders broader */}
-                  <path d="M20 50 Q10 52 8 65" stroke="var(--parchment)" strokeWidth="2" fill="none" opacity="0.2" />
-                  <path d="M60 50 Q70 52 72 65" stroke="var(--parchment)" strokeWidth="2" fill="none" opacity="0.2" />
-                </svg>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "1rem",
-                  right: "1rem",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "3rem",
-                  fontStyle: "italic",
-                  color: "var(--parchment)",
-                  opacity: 0.08,
-                  lineHeight: 1,
-                }}
-              >
-                A
-              </div>
-            </div>
+            <Image
+              src="/anvay.png"
+              alt="Prisha"
+              height={360}
+              width={360}
+              className="rounded-lg h-102 object-cover"
+            />
 
             <h3
               style={{

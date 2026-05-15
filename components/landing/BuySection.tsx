@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useCartStore } from "@/lib/store";
+import Image from "next/image";
 
 interface BuySectionProps {
   bookPrice: number;
@@ -23,7 +24,9 @@ export function BuySection({
 
   const priceInRupees = bookPrice / 100;
   const mrpInRupees = mrp / 100;
-  const discount = Math.round(((mrpInRupees - priceInRupees) / mrpInRupees) * 100);
+  const discount = Math.round(
+    ((mrpInRupees - priceInRupees) / mrpInRupees) * 100,
+  );
 
   const handleAddToCart = () => {
     addItem(
@@ -32,7 +35,7 @@ export function BuySection({
         format,
         price: bookPrice,
       },
-      qty
+      qty,
     );
     openCart();
   };
@@ -51,109 +54,7 @@ export function BuySection({
             transition={{ duration: 0.8 }}
             className="buy-cover-column"
           >
-            <div className="buy-book-cover">
-              {/* Hawa Mahal silhouette */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "30%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "60%",
-                  height: "40%",
-                  opacity: 0.12,
-                }}
-              >
-                <svg viewBox="0 0 200 160" fill="currentColor" style={{ color: "var(--ink)" }}>
-                  <rect x="70" y="40" width="60" height="120" rx="2" />
-                  <rect x="80" y="20" width="40" height="140" rx="2" />
-                  <rect x="90" y="5" width="20" height="155" rx="2" />
-                  <ellipse cx="100" cy="5" rx="12" ry="5" />
-                  <ellipse cx="85" cy="20" rx="8" ry="4" />
-                  <ellipse cx="115" cy="20" rx="8" ry="4" />
-                  <ellipse cx="75" cy="40" rx="6" ry="3" />
-                  <ellipse cx="125" cy="40" rx="6" ry="3" />
-                </svg>
-              </div>
-
-              {/* Two figures */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "22%",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  display: "flex",
-                  gap: "2.5rem",
-                  opacity: 0.2,
-                }}
-              >
-                <svg width="30" height="60" viewBox="0 0 30 60" fill="var(--ink)">
-                  <circle cx="15" cy="8" r="6" />
-                  <path d="M8 16 Q15 14 22 16 L24 45 Q15 48 6 45 Z" />
-                  <rect x="8" y="45" width="6" height="15" rx="2" />
-                  <rect x="16" y="45" width="6" height="15" rx="2" />
-                </svg>
-                <svg width="30" height="60" viewBox="0 0 30 60" fill="var(--ink)">
-                  <circle cx="15" cy="8" r="6" />
-                  <path d="M8 16 Q15 14 22 16 L22 35 Q15 38 8 35 Z" />
-                  <path d="M6 35 Q15 40 24 35 L26 55 Q15 58 4 55 Z" />
-                  <rect x="9" y="53" width="5" height="7" rx="2" />
-                  <rect x="16" y="53" width="5" height="7" rx="2" />
-                </svg>
-              </div>
-
-              <div style={{ position: "relative", zIndex: 2 }}>
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "2.2rem",
-                    fontStyle: "italic",
-                    fontWeight: 800,
-                    color: "var(--parchment)",
-                    lineHeight: 1,
-                    textShadow: "0 2px 20px rgba(0,0,0,0.5)",
-                  }}
-                >
-                  Kaash
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.75rem",
-                    fontStyle: "italic",
-                    color: "var(--parchment)",
-                    opacity: 0.8,
-                    marginTop: "0.3rem",
-                  }}
-                >
-                  You Could Love Me Someday
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.55rem",
-                    color: "var(--gold)",
-                    marginTop: "0.75rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.15em",
-                  }}
-                >
-                  Aashray
-                </p>
-              </div>
-
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "40%",
-                  background: "linear-gradient(transparent, rgba(13,10,7,0.5))",
-                }}
-              />
-            </div>
+            <Image src="/cover.jpeg" alt="Book Cover" height={540} width={360} className="rounded-lg" />
           </motion.div>
 
           {/* Product info */}
@@ -254,7 +155,11 @@ export function BuySection({
               <div className="buy-format-buttons">
                 <button
                   onClick={() => setFormat("Paperback")}
-                  className={format === "Paperback" ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"}
+                  className={
+                    format === "Paperback"
+                      ? "btn btn-primary btn-sm"
+                      : "btn btn-ghost btn-sm"
+                  }
                 >
                   Paperback
                 </button>
@@ -311,10 +216,7 @@ export function BuySection({
                 Add to Cart — ₹{priceInRupees * qty}
               </button>
             ) : (
-              <button
-                className="btn btn-primary btn-lg buy-cta-btn"
-                disabled
-              >
+              <button className="btn btn-primary btn-lg buy-cta-btn" disabled>
                 Temporarily Unavailable
               </button>
             )}
@@ -335,21 +237,36 @@ export function BuySection({
             {/* Trust badges */}
             <div className="buy-trust-badges">
               <div className="trust-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   <path d="M9 12l2 2 4-4" />
                 </svg>
                 Genuine Copy
               </div>
               <div className="trust-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
                 Secure Payment
               </div>
               <div className="trust-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M3 12a9 9 0 0 0 18 0 9 9 0 0 0-18 0z" />
                   <path d="M12 8v4l3 3" />
                 </svg>
