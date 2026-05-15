@@ -58,7 +58,7 @@ export function Reviews({ reviews }: { reviews: Review[] }) {
   return (
     <section
       ref={ref}
-      className="section-padding"
+      className="pt-0! section-padding"
       style={{ background: "var(--ink)" }}
     >
       <div className="container">

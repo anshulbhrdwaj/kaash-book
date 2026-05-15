@@ -36,7 +36,7 @@ export function ChapterGlimpse() {
 
   return (
     <section
-      className="section-padding"
+      className="pb-16! section-padding"
       style={{
         background: "var(--ink)",
         position: "relative",
