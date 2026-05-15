@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { useCartStore } from "@/lib/store";
 
 interface BuySectionProps {
@@ -44,46 +44,14 @@ export function BuySection({
       style={{ background: "var(--surface)" }}
     >
       <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "clamp(2rem, 5vw, 4rem)",
-            alignItems: "center",
-          }}
-        >
+        <div className="buy-section-grid">
           {/* Book cover - large */}
           <motion.div
             initial={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}
+            className="buy-cover-column"
           >
-            <div
-              style={{
-                width: "clamp(260px, 35vw, 380px)",
-                height: "clamp(390px, 52vw, 570px)",
-                borderRadius: "var(--radius-md)",
-                overflow: "hidden",
-                boxShadow: "var(--shadow-book)",
-                background: `
-                  linear-gradient(180deg, 
-                    #D4A853 0%, 
-                    #E8873A 25%, 
-                    #C84B11 45%, 
-                    #7B4F8E 65%, 
-                    #1A6B72 80%, 
-                    #0D0A07 100%
-                  )`,
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-end",
-                padding: "2.5rem",
-              }}
-            >
+            <div className="buy-book-cover">
               {/* Hawa Mahal silhouette */}
               <div
                 style={{
@@ -192,6 +160,7 @@ export function BuySection({
           <motion.div
             initial={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="buy-info-column"
           >
             <p
               style={{
@@ -207,9 +176,9 @@ export function BuySection({
             </p>
 
             <h2
+              className="buy-title"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "var(--text-3xl)",
                 fontStyle: "italic",
                 color: "var(--parchment)",
                 marginBottom: "0.25rem",
@@ -231,14 +200,7 @@ export function BuySection({
             </p>
 
             {/* Price */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "baseline",
-                gap: "0.75rem",
-                marginBottom: "0.5rem",
-              }}
-            >
+            <div className="buy-price-row">
               <span
                 style={{
                   fontFamily: "var(--font-display)",
@@ -289,7 +251,7 @@ export function BuySection({
             {/* Format selector */}
             <div style={{ marginBottom: "1.5rem" }}>
               <label className="form-label">Format</label>
-              <div style={{ display: "flex", gap: "0.75rem" }}>
+              <div className="buy-format-buttons">
                 <button
                   onClick={() => setFormat("Paperback")}
                   className={format === "Paperback" ? "btn btn-primary btn-sm" : "btn btn-ghost btn-sm"}
@@ -309,17 +271,7 @@ export function BuySection({
             {/* Quantity */}
             <div style={{ marginBottom: "2rem" }}>
               <label className="form-label">Quantity</label>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.75rem",
-                  background: "var(--surface-hover)",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid var(--border)",
-                  padding: "0.25rem",
-                }}
-              >
+              <div className="buy-qty-control">
                 <button
                   onClick={() => setQty(Math.max(1, qty - 1))}
                   className="btn btn-ghost btn-sm"
@@ -351,10 +303,8 @@ export function BuySection({
             {stockEnabled ? (
               <button
                 onClick={handleAddToCart}
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary btn-lg buy-cta-btn"
                 style={{
-                  width: "100%",
-                  marginBottom: "1.5rem",
                   animation: "pulse-glow 2s infinite",
                 }}
               >
@@ -362,9 +312,8 @@ export function BuySection({
               </button>
             ) : (
               <button
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary btn-lg buy-cta-btn"
                 disabled
-                style={{ width: "100%", marginBottom: "1.5rem" }}
               >
                 Temporarily Unavailable
               </button>
@@ -377,19 +326,14 @@ export function BuySection({
                 fontSize: "var(--text-xs)",
                 color: "var(--muted)",
                 marginBottom: "1.5rem",
+                marginTop: "1.5rem",
               }}
             >
               📦 Free shipping above ₹499 · Ships in 3–5 days
             </p>
 
             {/* Trust badges */}
-            <div
-              style={{
-                display: "flex",
-                gap: "1.5rem",
-                flexWrap: "wrap",
-              }}
-            >
+            <div className="buy-trust-badges">
               <div className="trust-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />

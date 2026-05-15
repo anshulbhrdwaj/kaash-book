@@ -50,16 +50,7 @@ export function Characters() {
           Two souls, one story
         </motion.h2>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr auto 1fr",
-            gap: "2rem",
-            alignItems: "stretch",
-            maxWidth: "900px",
-            margin: "0 auto",
-          }}
-        >
+        <div className="characters-grid">
           {/* Prisha */}
           <motion.div
             className="character-card"
@@ -158,16 +149,10 @@ export function Characters() {
 
           {/* Divider */}
           <motion.div
+            className="characters-divider"
             initial={{ opacity: 0, scaleY: 0 }}
             animate={isInView ? { opacity: 1, scaleY: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-            }}
           >
             <div
               style={{
@@ -296,18 +281,6 @@ export function Characters() {
           </motion.div>
         </div>
       </div>
-
-      {/* Responsive override for mobile - stack the grid */}
-      <style>{`
-        @media (max-width: 768px) {
-          .container > div:last-child {
-            grid-template-columns: 1fr !important;
-          }
-          .container > div:last-child > div:nth-child(2) {
-            display: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

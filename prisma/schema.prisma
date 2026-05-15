@@ -69,3 +69,23 @@ model SiteSettings {
   announcementBar   String?
   launchOfferActive Boolean @default(true)
 }
+
+model BlogPost {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  title       String
+  slug        String    @unique
+  excerpt     String    // Short summary for cards
+  content     String    // Full post content (markdown)
+  coverImage  String?   // URL to cover image
+  published   Boolean   @default(false)
+  featured    Boolean   @default(false)
+  tags        String[]  // Array of tag strings
+  author      String    @default("Aashray")
+  readingTime Int       @default(5) // Estimated minutes
+
+  @@index([published])
+  @@index([slug])
+  @@index([createdAt])
+}

@@ -37,3 +37,8 @@ export type Subscriber = Prisma.SubscriberModel
  * 
  */
 export type SiteSettings = Prisma.SiteSettingsModel
+/**
+ * Model BlogPost
+ * 
+ */
+export type BlogPost = Prisma.BlogPostModel

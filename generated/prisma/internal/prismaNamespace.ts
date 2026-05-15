@@ -387,7 +387,8 @@ export const ModelName = {
   Order: 'Order',
   Review: 'Review',
   Subscriber: 'Subscriber',
-  SiteSettings: 'SiteSettings'
+  SiteSettings: 'SiteSettings',
+  BlogPost: 'BlogPost'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "order" | "review" | "subscriber" | "siteSettings"
+    modelProps: "order" | "review" | "subscriber" | "siteSettings" | "blogPost"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +704,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    BlogPost: {
+      payload: Prisma.$BlogPostPayload<ExtArgs>
+      fields: Prisma.BlogPostFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BlogPostFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BlogPostFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        findFirst: {
+          args: Prisma.BlogPostFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BlogPostFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        findMany: {
+          args: Prisma.BlogPostFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>[]
+        }
+        create: {
+          args: Prisma.BlogPostCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        createMany: {
+          args: Prisma.BlogPostCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BlogPostCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>[]
+        }
+        delete: {
+          args: Prisma.BlogPostDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        update: {
+          args: Prisma.BlogPostUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        deleteMany: {
+          args: Prisma.BlogPostDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BlogPostUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BlogPostUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>[]
+        }
+        upsert: {
+          args: Prisma.BlogPostUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BlogPostPayload>
+        }
+        aggregate: {
+          args: Prisma.BlogPostAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBlogPost>
+        }
+        groupBy: {
+          args: Prisma.BlogPostGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlogPostGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BlogPostCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BlogPostCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -796,6 +871,25 @@ export const SiteSettingsScalarFieldEnum = {
 } as const
 
 export type SiteSettingsScalarFieldEnum = (typeof SiteSettingsScalarFieldEnum)[keyof typeof SiteSettingsScalarFieldEnum]
+
+
+export const BlogPostScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  title: 'title',
+  slug: 'slug',
+  excerpt: 'excerpt',
+  content: 'content',
+  coverImage: 'coverImage',
+  published: 'published',
+  featured: 'featured',
+  tags: 'tags',
+  author: 'author',
+  readingTime: 'readingTime'
+} as const
+
+export type BlogPostScalarFieldEnum = (typeof BlogPostScalarFieldEnum)[keyof typeof BlogPostScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1048,6 +1142,7 @@ export type GlobalOmitConfig = {
   review?: Prisma.ReviewOmit
   subscriber?: Prisma.SubscriberOmit
   siteSettings?: Prisma.SiteSettingsOmit
+  blogPost?: Prisma.BlogPostOmit
 }
 
 /* Types for Logging */

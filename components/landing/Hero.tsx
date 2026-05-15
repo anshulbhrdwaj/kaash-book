@@ -131,6 +131,7 @@ export function Hero() {
               visible: { opacity: 1, y: 0 },
             }}
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
+            className="hero-cta"
           >
             <a href="#buy" className="btn btn-primary btn-lg">
               Buy Now — ₹399
