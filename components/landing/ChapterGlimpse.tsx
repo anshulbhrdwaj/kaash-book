@@ -3,15 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-const chapterText = `The evening light filtered through the classroom window like it had something to prove — all gold and amber, the kind that made everything look like a memory even while it was still happening. Prisha sat in the second-to-last row, her notebook open but untouched, watching dust motes drift in the slanted light.
+const chapterText = `8th January 2026
 
-She didn't hear him come in. Nobody ever heard Anvay come in. He moved through rooms the way weather moved through open windows — sudden, uninvited, impossible to ignore once you noticed.
+Anvay Dubey stood shirtless in his rented apartment, the hum of Jaipur slipping through the open windows. At twenty-eight, his body still carried traces of what it used to be. The chest was broad, the shoulders familiar, but the sharpness had dulled. He gets tired faster now. Stretching in the mornings took longer than it should have, like his body needed convincing.
 
-"You're still here," he said, not asking. He dropped his bag on the desk beside hers — the one nobody sat in, the one she'd silently claimed as buffer space between herself and the rest of the world.
+He walked to the balcony the way he always did, without thinking. The chair waited in its usual spot, legs scraping faintly as he dragged it back. He propped his heels on the railing where the paint had chipped away long ago and lit a cigarette. He took one drag and let the rest burn slowly between his fingers. Inside the room, his phone lay face down on the table. No sound. No light. It stayed there.
 
-She didn't look up. "So are you."
-
-He smiled. She knew because she could feel it — that particular shift in the air that happened when Anvay decided to be present. Not just physically. But fully, entirely, recklessly present.`;
+Smoke curled upward, softening the crescent moon until its edges blurred. The night felt thicker than usual.`;
 
 export function ChapterGlimpse() {
   const ref = useRef<HTMLDivElement>(null);
