@@ -169,7 +169,7 @@ export function Hero() {
               transformStyle: "preserve-3d",
             }}
           >
-            <Image src="/cover.jpeg" alt="Book Cover" fill />
+            <Image src="/cover.jpeg" alt="Kaash — You Could Love Me Someday by Aashray - Book Cover" fill />
             {/* Book cover visual - CSS art matching the description */}
           </motion.div>
         </motion.div>

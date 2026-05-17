@@ -1,6 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { OrderConfirmationClient } from "./OrderConfirmationClient";
+
+export const metadata: Metadata = {
+  title: "Order Confirmation — Kaash",
+  robots: { index: false, follow: false },
+};
 
 export default async function OrderPage({ params }: { params: Promise<{ orderId: string }> }) {
   const { orderId } = await params;

@@ -4,6 +4,7 @@ import { CustomCursor } from "@/components/ui/CustomCursor";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kaashthebook.com"),
   title: "Kaash — You Could Love Me Someday | A Novel by Aashray",
   description:
     "Some love stories aren't about who stayed or who left. Kaash is a coming-of-age Indian love story about growth, loss, and the kind of love that changes you forever. Buy the book now.",
