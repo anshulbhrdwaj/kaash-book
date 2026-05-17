@@ -115,6 +115,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — Kaash Blog`,
     description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.createdAt.toISOString(),
+      authors: [post.author],
+      tags: post.tags,
+      ...(post.coverImage && {
+        images: [{ url: post.coverImage }],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      ...(post.coverImage && {
+        images: [post.coverImage],
+      }),
+    },
   };
 }
 

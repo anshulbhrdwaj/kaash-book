@@ -62,7 +62,7 @@ export function Characters() {
             {/* Abstract portrait - CSS gradient */}
             <Image
               src="/prisha.png"
-              alt="Prisha"
+              alt="Prisha - Character portrait from Kaash You Could Love Me Someday"
               height={360}
               width={360}
               className="rounded-lg h-102 object-cover"
@@ -155,7 +155,7 @@ export function Characters() {
             {/* Abstract portrait */}
             <Image
               src="/anvay.png"
-              alt="Prisha"
+              alt="Anvay - Character portrait from Kaash You Could Love Me Someday"
               height={360}
               width={360}
               className="rounded-lg h-102 object-cover"

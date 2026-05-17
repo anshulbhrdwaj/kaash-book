@@ -19,7 +19,7 @@ export function AboutAuthor() {
             className="author-portrait-column"
           >
             <div className="author-portrait relative">
-              <Image src="/author.jpeg" alt="Aashray" width={500} height={500} />
+              <Image src="/author.jpeg" alt="Aashray, author of Kaash - You Could Love Me Someday" width={500} height={500} />
               <div className="bg-transparent bg-gradient-to-t from-black via-black/20 to-transparent w-full h-full z-50 absolute top-0 left-0"></div>
               <div style={{ position: "absolute", bottom: "2rem", left: "2rem", zIndex: 100 }}>
                 <p

@@ -54,7 +54,7 @@ export function BuySection({
             transition={{ duration: 0.8 }}
             className="buy-cover-column"
           >
-            <Image src="/cover.jpeg" alt="Book Cover" height={540} width={360} className="rounded-lg" />
+            <Image src="/cover.jpeg" alt="Kaash — You Could Love Me Someday by Aashray - Book Cover" height={540} width={360} className="rounded-lg" />
           </motion.div>
 
           {/* Product info */}
